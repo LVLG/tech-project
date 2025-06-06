@@ -43,18 +43,12 @@ export default function Layout() {
 	const navLinks: Record<string, ValidateLinkOptions> = {
 		Message: { to: "/message" },
 		Stream: { to: "/stream" },
+		DragAndDrop: { to: "/drag-and-drop" },
 	};
 
 	return (
 		<div {...stylex.props(styles.layout, theme)}>
 			<aside {...stylex.props(styles.sidebar)}>
-				{/* <Link to={"/message"} {...stylex.props(styles.navLink)}>
-					Message
-				</Link>
-				<Link to="/stream" {...stylex.props(styles.navLink)}>
-					Stream
-				</Link> */}
-
 				{Object.entries(navLinks).map(([name, link]) => (
 					<Link key={name} to={link.to} {...stylex.props(styles.navLink)}>
 						{name}

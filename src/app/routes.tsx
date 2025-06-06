@@ -4,6 +4,7 @@ import {
 	createRouter,
 	redirect,
 } from "@tanstack/react-router";
+import DragAndDropDemo from "./components/DragAndDropDemo";
 import Layout from "./components/Layout";
 import MessageDemo from "./components/MessageDemo";
 import StreamDemo from "./components/StreamDemo";
@@ -24,6 +25,12 @@ const streamRoute = createRoute({
 	component: StreamDemo,
 });
 
+const dragAndDropRoute = createRoute({
+	getParentRoute: () => rootRoute,
+	path: "drag-and-drop",
+	component: DragAndDropDemo,
+});
+
 const redirectRoute = createRoute({
 	path: "/",
 	getParentRoute: () => rootRoute,
@@ -38,6 +45,7 @@ const routeTree = rootRoute.addChildren([
 	messageRoute,
 	streamRoute,
 	redirectRoute,
+	dragAndDropRoute,
 ]);
 
 export const router = createRouter({ routeTree });
