@@ -2,8 +2,11 @@ import { CollisionPriority } from "@dnd-kit/abstract";
 import { move } from "@dnd-kit/helpers";
 import { DragDropProvider } from "@dnd-kit/react";
 import { useSortable } from "@dnd-kit/react/sortable";
+import * as stylex from "@stylexjs/stylex";
 import type React from "react";
 import { useRef, useState } from "react";
+import { styles } from "../../styles/styles.stylex";
+import { styles as dragDemoStyles } from "./dragDemo.stylex";
 
 const Item: React.FC<{ id: string; index: number; column: string }> = ({
 	id,
@@ -21,21 +24,10 @@ const Item: React.FC<{ id: string; index: number; column: string }> = ({
 		<button
 			type="button"
 			ref={ref}
-			data-dragging={isDragging}
-			style={{
-				appearance: "none",
-				background: "#FFF",
-				color: "#666",
-				padding: "12px 20px",
-				border: "none",
-				borderRadius: "5px",
-				cursor: "grab",
-				transition: "transform 0.2s ease, box-shadow 0.2s ease",
-				transform: isDragging ? "scale(1.02)" : "scale(1)",
-				boxShadow: isDragging
-					? "inset 0px 0px 1px rgba(0,0,0,0.5), -1px 0 15px 0 rgba(34, 33, 81, 0.01), 0px 15px 15px 0 rgba(34, 33, 81, 0.25)"
-					: "inset 0px 0px 1px rgba(0,0,0,0.4), 0 0 0 1px rgba(63, 63, 68, 0.05), 0px 1px 2px 0 rgba(34, 33, 81, 0.05)",
-			}}
+			{...stylex.props(
+				styles.dragItem,
+				isDragging && dragDemoStyles.itemDragging,
+			)}
 		>
 			{id}
 		</button>
@@ -56,20 +48,7 @@ const Column: React.FC<{
 	});
 
 	return (
-		<div
-			ref={ref}
-			style={{
-				display: "flex",
-				flexDirection: "column",
-				gap: "10px",
-				padding: "20px",
-				minWidth: "175px",
-				height: "fit-content",
-				backgroundColor: "rgba(0, 0, 0, 0.1)",
-				border: "1px solid rgba(0, 0, 0, 0.1)",
-				borderRadius: "10px",
-			}}
-		>
+		<div ref={ref} {...stylex.props(dragDemoStyles.column)}>
 			{children}
 		</div>
 	);
@@ -117,16 +96,7 @@ const DragAndDropDemo: React.FC = () => {
 				}
 			}}
 		>
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "row",
-					gap: "20px",
-					flexWrap: "wrap",
-					height: "100%",
-					margin: "1rem",
-				}}
-			>
+			<div {...stylex.props(dragDemoStyles.root)}>
 				{columnOrder.map((column, columnIndex) => (
 					<Column key={column} id={column} index={columnIndex}>
 						{items[column].map((id, index) => (

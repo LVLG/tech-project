@@ -2,7 +2,7 @@ import * as stylex from "@stylexjs/stylex";
 import { useQuery } from "@tanstack/react-query";
 import { motion, useAnimate } from "motion/react";
 import { api } from "../common/api";
-import { styles } from "../styles/styles";
+import { styles } from "../styles/styles.stylex";
 import { themeVars } from "../styles/theme.stylex";
 
 const componentStyle = stylex.create({

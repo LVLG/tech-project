@@ -3,7 +3,7 @@ import { Moon, Sun } from "lucide-react";
 import { motion } from "motion/react";
 import type React from "react";
 import { useThemeStore } from "../stores/useThemeStore";
-import { styles } from "../styles/styles";
+import { styles } from "../styles/styles.stylex";
 
 const ThemeToggle: React.FC = () => {
 	const toggle = useThemeStore((s) => s.toggleTheme);

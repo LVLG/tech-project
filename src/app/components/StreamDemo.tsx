@@ -5,7 +5,7 @@ import {
 } from "@tanstack/react-query";
 import { motion } from "motion/react";
 import { api } from "../common/api";
-import { styles } from "../styles/styles";
+import { styles } from "../styles/styles.stylex";
 import { themeVars } from "../styles/theme.stylex";
 import { handleSteam } from "../utils/handleSteam";
 
