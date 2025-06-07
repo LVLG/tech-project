@@ -2,11 +2,11 @@ import { CollisionPriority } from "@dnd-kit/abstract";
 import { move } from "@dnd-kit/helpers";
 import { DragDropProvider } from "@dnd-kit/react";
 import { useSortable } from "@dnd-kit/react/sortable";
-import * as stylex from "@stylexjs/stylex";
+import clsx from "clsx";
 import type React from "react";
 import { useRef, useState } from "react";
-import { styles } from "../../styles/styles.stylex";
-import { styles as dragDemoStyles } from "./dragDemo.stylex";
+import * as styles from "../../styles/app.css";
+import * as dragDemoStyles from "./dragDemo.css";
 
 const Item: React.FC<{ id: string; index: number; column: string }> = ({
 	id,
@@ -20,11 +20,12 @@ const Item: React.FC<{ id: string; index: number; column: string }> = ({
 		accept: "item",
 		group: column,
 	});
+
 	return (
 		<button
 			type="button"
 			ref={ref}
-			{...stylex.props(
+			className={clsx(
 				styles.dragItem,
 				isDragging && dragDemoStyles.itemDragging,
 			)}
@@ -48,7 +49,7 @@ const Column: React.FC<{
 	});
 
 	return (
-		<div ref={ref} {...stylex.props(dragDemoStyles.column)}>
+		<div ref={ref} className={dragDemoStyles.column}>
 			{children}
 		</div>
 	);
@@ -75,28 +76,23 @@ const DragAndDropDemo: React.FC = () => {
 			}}
 			onDragOver={(event) => {
 				const { source } = event.operation;
-
 				if (source?.type === "column") return;
-
 				setItems((items) => move(items, event));
 			}}
 			onDragEnd={(event) => {
 				const { source } = event.operation;
-
 				if (event.canceled) {
 					if (source?.type === "item") {
 						setItems(previousItems.current);
 					}
-
 					return;
 				}
-
 				if (source?.type === "column") {
 					setColumnOrder((columns) => move(columns, event));
 				}
 			}}
 		>
-			<div {...stylex.props(dragDemoStyles.root)}>
+			<div className={dragDemoStyles.root}>
 				{columnOrder.map((column, columnIndex) => (
 					<Column key={column} id={column} index={columnIndex}>
 						{items[column].map((id, index) => (

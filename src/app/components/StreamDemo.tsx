@@ -1,25 +1,12 @@
-import * as stylex from "@stylexjs/stylex";
 import {
 	experimental_streamedQuery as streamedQuery,
 	useQuery,
 } from "@tanstack/react-query";
+import clsx from "clsx";
 import { motion } from "motion/react";
 import { api } from "../common/api";
-import { styles } from "../styles/styles.stylex";
-import { themeVars } from "../styles/theme.stylex";
+import * as styles from "../styles/app.css";
 import { handleSteam } from "../utils/handleSteam";
-
-const componentStyle = stylex.create({
-	word: {
-		fontSize: "1.25rem",
-		margin: "0 0.25rem",
-		display: "inline-block",
-		color: themeVars.textColor,
-	},
-	button: {
-		marginBottom: "1rem",
-	},
-});
 
 const StreamDemo: React.FC = () => {
 	const {
@@ -35,9 +22,10 @@ const StreamDemo: React.FC = () => {
 	});
 
 	return (
-		<div {...stylex.props(styles.pageContent)}>
+		<div className={styles.pageContent}>
 			<button
-				{...stylex.props({ ...componentStyle.button, ...styles.button })}
+				type="button"
+				className={clsx(styles.button, styles.streamButton)}
 				onClick={() => startStream()}
 				disabled={isStreaming}
 			>
@@ -47,7 +35,7 @@ const StreamDemo: React.FC = () => {
 				{wordss?.map((word) => (
 					<motion.span
 						key={word.word}
-						{...stylex.props(componentStyle.word)}
+						className={styles.streamWord}
 						initial={{ opacity: 0, y: 10 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.3 }}

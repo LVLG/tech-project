@@ -1,18 +1,8 @@
-import * as stylex from "@stylexjs/stylex";
 import { useQuery } from "@tanstack/react-query";
 import { motion, useAnimate } from "motion/react";
+import type React from "react";
 import { api } from "../common/api";
-import { styles } from "../styles/styles.stylex";
-import { themeVars } from "../styles/theme.stylex";
-
-const componentStyle = stylex.create({
-	message: {
-		fontSize: "1.5rem",
-		fontWeight: "bold",
-		marginTop: "2rem",
-		color: themeVars.textColor,
-	},
-});
+import * as styles from "../styles/app.css";
 
 const MessageDemo: React.FC = () => {
 	const [scope, animate] = useAnimate();
@@ -39,11 +29,11 @@ const MessageDemo: React.FC = () => {
 	};
 
 	return (
-		<div {...stylex.props(styles.pageContent)}>
-			<button {...stylex.props(styles.button)} onClick={handleClick}>
+		<div className={styles.pageContent}>
+			<button type="button" className={styles.button} onClick={handleClick}>
 				Fetch Message
 			</button>
-			<motion.p ref={scope} {...stylex.props(componentStyle.message)}>
+			<motion.p ref={scope} className={styles.messageText}>
 				{data}
 			</motion.p>
 		</div>

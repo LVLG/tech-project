@@ -1,6 +1,6 @@
-import { createTheme, defineVars } from "@stylexjs/stylex";
+import { createTheme, createThemeContract } from "@vanilla-extract/css";
 
-export const colors = defineVars({
+export const colors = {
 	// Neutrals
 	white: "#ffffff",
 	black: "#000000",
@@ -24,38 +24,31 @@ export const colors = defineVars({
 	dark900: "#181c20",
 	dark800: "#23272f",
 	dark700: "#292e36",
+};
+
+export const themeVars = createThemeContract({
+	backgroundColor: null,
+	surfaceColor: null,
+	textColor: null,
+	textColorMuted: null,
+
+	primaryColor: null,
+	primaryColorHover: null,
+
+	columnBg: null,
+	columnBgMuted: null,
+	columnBorder: null,
+	columnBorderMuted: null,
+
+	itemBg: null,
+	itemBgMuted: null,
+	itemColor: null,
+	itemColorMuted: null,
+
+	itemBoxShadow: null,
+	itemBoxShadowDragging: null,
 });
 
-// 🎯 Semantic Tokens (Item == Button)
-export const themeVars = defineVars({
-	// Base
-	backgroundColor: colors.gray100,
-	surfaceColor: colors.white,
-	textColor: colors.gray900,
-	textColorMuted: colors.gray600,
-
-	// Accent
-	primaryColor: colors.blue500,
-	primaryColorHover: colors.blue600,
-
-	// Column
-	columnBg: colors.gray200,
-	columnBgMuted: colors.gray300,
-	columnBorder: `1px solid ${colors.gray300}`,
-	columnBorderMuted: `1px solid ${colors.gray200}`,
-
-	// Item (merged with button)
-	itemBg: colors.white,
-	itemBgMuted: colors.gray100,
-	itemColor: colors.gray900,
-	itemColorMuted: colors.gray600,
-
-	itemBoxShadow: "0 1px 4px rgba(60,72,88,0.07), 0 0 0 1px rgba(63,63,68,0.04)",
-	itemBoxShadowDragging:
-		"0 4px 16px rgba(60,72,88,0.12), 0 0 0 1px rgba(63,63,68,0.08)",
-});
-
-// ☀️ Light Theme
 export const lightTheme = createTheme(themeVars, {
 	backgroundColor: colors.gray100,
 	surfaceColor: colors.white,
@@ -80,7 +73,7 @@ export const lightTheme = createTheme(themeVars, {
 		"0 4px 16px rgba(60,72,88,0.12), 0 0 0 1px rgba(63,63,68,0.08)",
 });
 
-// 🌙 Dark Theme
+// Dark theme
 export const darkTheme = createTheme(themeVars, {
 	backgroundColor: colors.dark900,
 	surfaceColor: colors.dark700,

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { darkTheme, lightTheme } from "../styles/theme.stylex";
+import { darkTheme, lightTheme } from "../styles/theme.css";
 
 type Theme = "light" | "dark";
 

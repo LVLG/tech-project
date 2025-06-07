@@ -1,4 +1,3 @@
-// src/server/routes/message.ts
 import { Elysia } from "elysia";
 import { getRequestContext } from "..";
 
