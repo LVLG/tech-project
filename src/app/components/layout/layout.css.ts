@@ -9,6 +9,9 @@ export const layout = style({
 });
 
 export const sidebar = style({
+	display: "flex",
+	flexDirection: "column",
+	justifyContent: "space-between",
 	width: "200px",
 	padding: "1rem",
 	borderRight: "1px solid #ccc",
@@ -22,17 +25,37 @@ export const content = style({
 	overflow: "hidden",
 });
 
-export const header = style({
-	padding: "1rem",
-	borderBottom: "1px solid #ccc",
-	display: "flex",
-	justifyContent: "space-between",
-	alignItems: "center",
-});
-
 export const navLink = style({
-	display: "block",
-	margin: "0.5rem 0",
 	textDecoration: "none",
 	color: themeVars.textColor,
+	fontWeight: "bold",
+	padding: "0.5rem 1rem",
+	borderRadius: "4px",
+	transition: "background-color 0.3s, color 0.3s",
+
+	":hover": {
+		backgroundColor: themeVars.primaryColor,
+		color: themeVars.backgroundColor,
+	},
+});
+
+export const navigation = style({
+	display: "flex",
+	flexDirection: "column",
+	gap: "0.5rem",
+	marginBottom: "1rem",
+});
+
+export const pageLink = style({
+	textDecoration: "none",
+	color: themeVars.textColor,
+	fontWeight: "bold",
+	padding: "0.5rem 1rem",
+	borderRadius: "4px",
+	transition: "background-color 0.3s, color 0.3s",
+
+	":hover": {
+		backgroundColor: themeVars.primaryColor,
+		color: themeVars.backgroundColor,
+	},
 });

@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { button } from "../../styles/root.css";
 import { themeVars } from "../../styles/theme.css";
 
 export const messageText = style({
@@ -25,6 +26,9 @@ export const streamWord = style({
 	color: themeVars.textColor,
 });
 
-export const streamButton = style({
-	marginBottom: "1rem",
-});
+export const streamButton = style([
+	button,
+	{
+		marginBottom: "1rem",
+	},
+]);

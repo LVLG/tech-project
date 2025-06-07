@@ -2,11 +2,9 @@ import {
 	experimental_streamedQuery as streamedQuery,
 	useQuery,
 } from "@tanstack/react-query";
-import clsx from "clsx";
 import { motion } from "motion/react";
 import { api } from "../../common/api";
-import { button } from "../../styles/root.css";
-import { handleSteam } from "../../utils/handleSteam";
+import { handleSteam } from "../../utils/handle-steam";
 import { messageText, pageContent, streamButton } from "./stream-demo.css";
 
 const StreamDemo: React.FC = () => {
@@ -26,7 +24,7 @@ const StreamDemo: React.FC = () => {
 		<div className={pageContent}>
 			<button
 				type="button"
-				className={clsx(button, streamButton)}
+				className={streamButton}
 				onClick={() => startStream()}
 				disabled={isStreaming}
 			>

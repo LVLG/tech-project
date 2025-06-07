@@ -14,6 +14,12 @@ const ThemeToggle: React.FC = () => {
 				initial={false}
 				animate={{ rotate: mode === "dark" ? 360 : 0 }}
 				transition={{ duration: 0.4 }}
+				style={{
+					display: "inline-flex",
+					alignItems: "center",
+					justifyContent: "center",
+					transformOrigin: "50% 50%",
+				}}
 			>
 				{mode === "dark" ? <Moon size={18} /> : <Sun size={18} />}
 			</motion.div>
