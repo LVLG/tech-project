@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 import { themeVars } from "../../styles/theme.css";
 
 export const layout = style({
@@ -9,12 +10,76 @@ export const layout = style({
 });
 
 export const sidebar = style({
+	width: "240px",
+	padding: "1rem",
 	display: "flex",
 	flexDirection: "column",
+	gap: "1rem",
+	borderRight: `1px solid ${themeVars.borderColor}`,
+	backgroundColor: themeVars.backgroundColor,
+	flexShrink: 0,
+});
+
+export const sidebarHeader = style({
+	display: "flex",
+	alignItems: "center",
 	justifyContent: "space-between",
-	width: "200px",
-	padding: "1rem",
-	borderRight: "1px solid #ccc",
+	marginBottom: "1rem",
+	height: "40px",
+});
+
+export const logo = recipe({
+	base: {
+		width: "40px",
+		height: "40px",
+		transition: "width 0.3s ease, height 0.3s ease",
+	},
+	variants: {
+		size: {
+			small: {
+				width: "30px",
+				height: "30px",
+			},
+		},
+	},
+});
+
+export const collapseButton = recipe({
+	base: {
+		background: "none",
+		border: "none",
+		cursor: "pointer",
+		padding: "4px",
+		borderRadius: "4px",
+		color: themeVars.textColor,
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		transition: "transform 0.2s ease",
+		":hover": {
+			backgroundColor: themeVars.hoverColor,
+		},
+	},
+	variants: {
+		collapsed: {
+			true: {
+				transform: "rotate(180deg)",
+			},
+			false: {
+				transform: "rotate(0deg)",
+			},
+		},
+	},
+	defaultVariants: {
+		collapsed: false,
+	},
+});
+
+export const navigation = style({
+	display: "flex",
+	flexDirection: "column",
+	gap: "0.5rem",
+	flex: 1,
 });
 
 export const content = style({
@@ -23,39 +88,4 @@ export const content = style({
 	flex: 1,
 	padding: "2rem",
 	overflow: "hidden",
-});
-
-export const navLink = style({
-	textDecoration: "none",
-	color: themeVars.textColor,
-	fontWeight: "bold",
-	padding: "0.5rem 1rem",
-	borderRadius: "4px",
-	transition: "background-color 0.3s, color 0.3s",
-
-	":hover": {
-		backgroundColor: themeVars.primaryColor,
-		color: themeVars.backgroundColor,
-	},
-});
-
-export const navigation = style({
-	display: "flex",
-	flexDirection: "column",
-	gap: "0.5rem",
-	marginBottom: "1rem",
-});
-
-export const pageLink = style({
-	textDecoration: "none",
-	color: themeVars.textColor,
-	fontWeight: "bold",
-	padding: "0.5rem 1rem",
-	borderRadius: "4px",
-	transition: "background-color 0.3s, color 0.3s",
-
-	":hover": {
-		backgroundColor: themeVars.primaryColor,
-		color: themeVars.backgroundColor,
-	},
 });

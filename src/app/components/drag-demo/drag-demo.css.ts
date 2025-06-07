@@ -28,12 +28,11 @@ export const itemDragging = style({
 });
 
 export const dragItem = style([
-	button,
+	button(),
 	{
 		cursor: "grab",
 		appearance: "none",
 		transform: "scale(1)",
-		transition: "transform 0.2s ease, box-shadow 0.2s ease",
 		margin: "10px 10px",
 	},
 ]);

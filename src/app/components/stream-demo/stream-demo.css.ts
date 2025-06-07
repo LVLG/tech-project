@@ -27,7 +27,7 @@ export const streamWord = style({
 });
 
 export const streamButton = style([
-	button,
+	button(),
 	{
 		marginBottom: "1rem",
 	},

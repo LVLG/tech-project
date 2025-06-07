@@ -7,7 +7,7 @@ export const Item: React.FC<{ id: string; index: number; column: string }> = ({
 	index,
 	column,
 }) => {
-	const { ref, isDragging } = useSortable({
+	const { ref, isDragging, isDropTarget } = useSortable({
 		id,
 		index,
 		type: "item",
@@ -16,12 +16,30 @@ export const Item: React.FC<{ id: string; index: number; column: string }> = ({
 	});
 
 	return (
-		<button
-			type="button"
-			ref={ref}
-			className={clsx(styles.dragItem, isDragging && styles.itemDragging)}
-		>
-			{id}
-		</button>
+		<div style={{ position: "relative", display: "flex" }}>
+			{isDropTarget && (
+				<button
+					type="button"
+					className={clsx(styles.dragItem, isDragging && styles.itemDragging)}
+					style={{
+						position: "absolute",
+						inset: 0,
+						pointerEvents: "none",
+						zIndex: 1,
+						opacity: 0.3,
+					}}
+				>
+					{id}
+				</button>
+			)}
+			<button
+				type="button"
+				ref={ref}
+				className={clsx(styles.dragItem, isDragging && styles.itemDragging)}
+				style={{ position: "relative", zIndex: 2, flex: 1 }}
+			>
+				{id}
+			</button>
+		</div>
 	);
 };

@@ -29,9 +29,9 @@ const randomDelay = () => Math.floor(Math.random() * 4000);
 export const messageRoute = new Elysia({ prefix: "/message" })
 	.get("", () => ({ message: "Hello from Bun + Elysia" }))
 	.get("/stream", async function* () {
-		const { value, random } = getRequestContext();
+		const { value, requestId } = getRequestContext();
 		console.log("Request URL:", value);
-		console.log("Random number:", random);
+		console.log("Request ID:", requestId);
 
 		const words = [
 			"words",

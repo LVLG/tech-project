@@ -6,14 +6,12 @@ import { messageRoute } from "./routes/message";
 
 type RequestContext = {
 	value: string;
-	random: number;
+	requestId: number;
 };
 
 const asyncContext = new AsyncLocalStorage<RequestContext>();
 
 export const getRequestContext = () => {
-	console.log("kaki");
-
 	const ctx = asyncContext.getStore();
 	if (!ctx) throw new Error("RequestContext not available");
 	return ctx;
@@ -23,7 +21,7 @@ const withRequestContext = (app: Elysia) =>
 	app.onRequest((ctx) => {
 		asyncContext.enterWith({
 			value: ctx.request.url,
-			random: Math.random(),
+			requestId: Math.random(),
 		});
 	});
 

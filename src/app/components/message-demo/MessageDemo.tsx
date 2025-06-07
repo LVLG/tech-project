@@ -31,7 +31,7 @@ const MessageDemo: React.FC = () => {
 
 	return (
 		<div className={pageContent}>
-			<button type="button" className={button} onClick={handleClick}>
+			<button type="button" className={button()} onClick={handleClick}>
 				Fetch Message
 			</button>
 			<motion.p ref={scope} className={messageText}>

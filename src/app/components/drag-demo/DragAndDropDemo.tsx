@@ -21,9 +21,6 @@ const DragAndDropDemo: React.FC = () => {
 			]),
 		) as ItemsState,
 	);
-	const [columnOrder] = useState<ColumnKey[]>(
-		() => Object.keys(items) as ColumnKey[],
-	);
 
 	return (
 		<DragDropProvider
@@ -36,7 +33,7 @@ const DragAndDropDemo: React.FC = () => {
 			}}
 		>
 			<div className={styles.root}>
-				{columnOrder.map((column, columnIndex) => (
+				{columnKeys.map((column, columnIndex) => (
 					<Column key={column} id={column} index={columnIndex}>
 						{items[column].map((id, index) => (
 							<Item key={id} id={id} index={index} column={column} />

@@ -11,9 +11,8 @@ export const colors = {
 	gray800: "#343a40",
 	gray900: "#23272f",
 
-	// Brand
-	blue500: "#007bff",
-	blue600: "#0056b3",
+	primary500: "#E6A068", // Main Shiba fur color
+	primary600: "#D4814A", // Darker shade for hover
 
 	// Status
 	green500: "#28a745",
@@ -47,6 +46,8 @@ export const themeVars = createThemeContract({
 
 	itemBoxShadow: null,
 	itemBoxShadowDragging: null,
+	hoverColor: null,
+	borderColor: null,
 });
 
 export const lightTheme = createTheme(themeVars, {
@@ -55,8 +56,8 @@ export const lightTheme = createTheme(themeVars, {
 	textColor: colors.gray900,
 	textColorMuted: colors.gray600,
 
-	primaryColor: colors.blue500,
-	primaryColorHover: colors.blue600,
+	primaryColor: colors.primary500,
+	primaryColorHover: colors.primary600,
 
 	columnBg: colors.gray200,
 	columnBgMuted: colors.gray300,
@@ -71,6 +72,8 @@ export const lightTheme = createTheme(themeVars, {
 	itemBoxShadow: "0 1px 4px rgba(60,72,88,0.07), 0 0 0 1px rgba(63,63,68,0.04)",
 	itemBoxShadowDragging:
 		"0 4px 16px rgba(60,72,88,0.12), 0 0 0 1px rgba(63,63,68,0.08)",
+	hoverColor: "rgba(0, 0, 0, 0.05)",
+	borderColor: "#e5e7eb",
 });
 
 // Dark theme
@@ -80,8 +83,8 @@ export const darkTheme = createTheme(themeVars, {
 	textColor: colors.white,
 	textColorMuted: "#cccccc",
 
-	primaryColor: colors.blue500,
-	primaryColorHover: colors.blue600,
+	primaryColor: colors.primary500,
+	primaryColorHover: colors.primary600,
 
 	columnBg: colors.dark800,
 	columnBgMuted: "#1c1f25",
@@ -96,4 +99,6 @@ export const darkTheme = createTheme(themeVars, {
 	itemBoxShadow: "0 1px 4px 0 rgba(0,0,0,0.32), 0 0 0 1px rgba(0,0,0,0.18)",
 	itemBoxShadowDragging:
 		"0 4px 16px 0 rgba(0,0,0,0.45), 0 0 0 1px rgba(0,0,0,0.22)",
+	hoverColor: "rgba(255, 255, 255, 0.1)",
+	borderColor: "#374151",
 });
