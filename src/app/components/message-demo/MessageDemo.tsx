@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion, useAnimate } from "motion/react";
 import type React from "react";
-import { api } from "../common/api";
-import * as styles from "../styles/app.css";
+import { api } from "../../common/api";
+import { button } from "../../styles/root.css";
+import { messageText, pageContent } from "./message-demo.css";
 
 const MessageDemo: React.FC = () => {
 	const [scope, animate] = useAnimate();
@@ -29,11 +30,11 @@ const MessageDemo: React.FC = () => {
 	};
 
 	return (
-		<div className={styles.pageContent}>
-			<button type="button" className={styles.button} onClick={handleClick}>
+		<div className={pageContent}>
+			<button type="button" className={button} onClick={handleClick}>
 				Fetch Message
 			</button>
-			<motion.p ref={scope} className={styles.messageText}>
+			<motion.p ref={scope} className={messageText}>
 				{data}
 			</motion.p>
 		</div>

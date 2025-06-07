@@ -1,15 +1,15 @@
 import { Moon, Sun } from "lucide-react";
 import { motion } from "motion/react";
 import type React from "react";
-import { useThemeStore } from "../stores/useThemeStore";
-import * as styles from "../styles/app.css";
+import { useThemeStore } from "../../stores/useThemeStore";
+import * as styles from "./theme-toggle.css";
 
 const ThemeToggle: React.FC = () => {
 	const toggle = useThemeStore((s) => s.toggleTheme);
 	const mode = useThemeStore((s) => s.theme);
 
 	return (
-		<button type="button" className={styles.button} onClick={toggle}>
+		<button type="button" className={styles.themeToggleButton} onClick={toggle}>
 			<motion.div
 				initial={false}
 				animate={{ rotate: mode === "dark" ? 360 : 0 }}

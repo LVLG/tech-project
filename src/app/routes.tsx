@@ -5,9 +5,9 @@ import {
 	redirect,
 } from "@tanstack/react-router";
 import DragAndDropDemo from "./components/drag-demo/DragAndDropDemo";
-import Layout from "./components/Layout";
-import MessageDemo from "./components/MessageDemo";
-import StreamDemo from "./components/StreamDemo";
+import Layout from "./components/layout/Layout";
+import MessageDemo from "./components/message-demo/MessageDemo";
+import StreamDemo from "./components/stream-demo/StreamDemo";
 
 const rootRoute = createRootRoute({
 	component: Layout,

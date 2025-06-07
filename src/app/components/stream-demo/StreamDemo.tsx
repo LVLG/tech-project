@@ -4,9 +4,10 @@ import {
 } from "@tanstack/react-query";
 import clsx from "clsx";
 import { motion } from "motion/react";
-import { api } from "../common/api";
-import * as styles from "../styles/app.css";
-import { handleSteam } from "../utils/handleSteam";
+import { api } from "../../common/api";
+import { button } from "../../styles/root.css";
+import { handleSteam } from "../../utils/handleSteam";
+import { messageText, pageContent, streamButton } from "./stream-demo.css";
 
 const StreamDemo: React.FC = () => {
 	const {
@@ -22,10 +23,10 @@ const StreamDemo: React.FC = () => {
 	});
 
 	return (
-		<div className={styles.pageContent}>
+		<div className={pageContent}>
 			<button
 				type="button"
-				className={clsx(styles.button, styles.streamButton)}
+				className={clsx(button, streamButton)}
 				onClick={() => startStream()}
 				disabled={isStreaming}
 			>
@@ -35,7 +36,7 @@ const StreamDemo: React.FC = () => {
 				{wordss?.map((word) => (
 					<motion.span
 						key={word.word}
-						className={styles.streamWord}
+						className={messageText}
 						initial={{ opacity: 0, y: 10 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.3 }}
