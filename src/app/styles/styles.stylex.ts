@@ -1,7 +1,7 @@
 import * as stylex from "@stylexjs/stylex";
 import { themeVars } from "./theme.stylex";
 
-const baseButton = {
+export const baseButton = {
 	backgroundColor: themeVars.itemBg,
 	color: themeVars.itemColor,
 	border: "none",
