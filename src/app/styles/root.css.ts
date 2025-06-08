@@ -25,7 +25,6 @@ export const button = recipe({
 			},
 			":active": {
 				backgroundColor: themeVars.primaryColor,
-				color: themeVars.surfaceColor,
 			},
 		},
 	],

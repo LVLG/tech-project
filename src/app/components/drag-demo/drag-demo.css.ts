@@ -23,8 +23,8 @@ export const column = style({
 });
 
 export const itemDragging = style({
-	transform: "scale(1.02)",
 	boxShadow: themeVars.itemBoxShadowDragging,
+	backgroundColor: themeVars.primaryColor,
 });
 
 export const dragItem = style([
@@ -32,7 +32,6 @@ export const dragItem = style([
 	{
 		cursor: "grab",
 		appearance: "none",
-		transform: "scale(1)",
 		margin: "10px 10px",
 	},
 ]);

@@ -20,7 +20,7 @@ export const Item: React.FC<{ id: string; index: number; column: string }> = ({
 			{isDropTarget && (
 				<button
 					type="button"
-					className={clsx(styles.dragItem, isDragging && styles.itemDragging)}
+					className={clsx(styles.dragItem)}
 					style={{
 						position: "absolute",
 						inset: 0,
