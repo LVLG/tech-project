@@ -48,6 +48,8 @@ export const themeVars = createThemeContract({
 	itemBoxShadowDragging: null,
 	hoverColor: null,
 	borderColor: null,
+
+	glassColor: null,
 });
 
 export const lightTheme = createTheme(themeVars, {
@@ -74,6 +76,8 @@ export const lightTheme = createTheme(themeVars, {
 		"0 4px 16px rgba(60,72,88,0.12), 0 0 0 1px rgba(63,63,68,0.08)",
 	hoverColor: "rgba(0, 0, 0, 0.05)",
 	borderColor: "#e5e7eb",
+
+	glassColor: "255, 255, 255",
 });
 
 // Dark theme
@@ -101,4 +105,6 @@ export const darkTheme = createTheme(themeVars, {
 		"0 4px 16px 0 rgba(0,0,0,0.45), 0 0 0 1px rgba(0,0,0,0.22)",
 	hoverColor: "rgba(255, 255, 255, 0.1)",
 	borderColor: "#374151",
+
+	glassColor: "0, 0, 0",
 });

@@ -6,7 +6,6 @@ export const root = style({
 	display: "flex",
 	flexDirection: "row",
 	gap: "20px",
-	margin: "1rem",
 	overflow: "hidden",
 	overflowX: "auto",
 });

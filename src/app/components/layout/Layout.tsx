@@ -10,7 +10,7 @@ import { ChevronLeft } from "lucide-react";
 import { useState } from "react";
 
 import { useTheme } from "../../stores/useThemeStore";
-import { button } from "../../styles/root.css";
+import { button, glass } from "../../styles/root.css";
 import ThemeToggle from "../theme-toggle/ThemeToggle";
 import * as styles from "./layout.css";
 import { collapseButton, logo } from "./layout.css";
@@ -29,7 +29,7 @@ export default function Layout() {
 	return (
 		<div className={clsx(styles.layout, themeClass)}>
 			<motion.aside
-				className={styles.sidebar}
+				className={clsx(styles.sidebar, glass())}
 				animate={{
 					width: isCollapsed ? "fit-content" : "240px",
 				}}

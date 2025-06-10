@@ -15,9 +15,8 @@ export const sidebar = style({
 	display: "flex",
 	flexDirection: "column",
 	gap: "1rem",
-	borderRight: `1px solid ${themeVars.borderColor}`,
-	backgroundColor: themeVars.backgroundColor,
 	flexShrink: 0,
+	margin: "1rem",
 });
 
 export const sidebarHeader = style({
@@ -86,6 +85,6 @@ export const content = style({
 	display: "flex",
 	flexDirection: "column",
 	flex: 1,
-	padding: "2rem",
+	padding: "1rem",
 	overflow: "hidden",
 });
