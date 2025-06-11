@@ -16,6 +16,7 @@ export const Item: React.FC<{ id: string; index: number; column: string }> = ({
 	});
 
 	return (
+		// <div style={{ position: "relative", display: "flex" }}>
 		<button
 			type="button"
 			ref={ref}
@@ -23,5 +24,6 @@ export const Item: React.FC<{ id: string; index: number; column: string }> = ({
 		>
 			{id}
 		</button>
+		// </div>
 	);
 };

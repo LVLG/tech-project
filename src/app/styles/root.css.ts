@@ -1,3 +1,4 @@
+import { globalStyle } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { themeVars } from "./theme.css";
 
@@ -93,4 +94,40 @@ export const glass = recipe({
 		blur: "medium",
 		outline: "outline",
 	},
+});
+
+// Firefox
+globalStyle("*", {
+	scrollbarWidth: "thin",
+	scrollbarColor: `${themeVars.primaryColor} transparent`,
+});
+
+// Webkit (Chrome, Safari, Edge)
+globalStyle("*::-webkit-scrollbar", {
+	width: "8px",
+	height: "8px",
+});
+
+globalStyle("*::-webkit-scrollbar-track", {
+	background: "transparent",
+});
+
+globalStyle("*::-webkit-scrollbar-thumb", {
+	backgroundColor: themeVars.primaryColor,
+	borderRadius: "10px",
+	border: "2px solid transparent",
+	backgroundClip: "content-box",
+});
+
+globalStyle("html, body", {
+	margin: 0,
+	padding: 0,
+	height: "100%",
+	overflow: "hidden",
+});
+
+globalStyle("#root", {
+	display: "flex",
+	flexDirection: "column",
+	height: "100%",
 });

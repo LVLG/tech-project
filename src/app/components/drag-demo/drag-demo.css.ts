@@ -31,7 +31,6 @@ export const dragItem = style([
 	button(),
 	{
 		cursor: "grab",
-		appearance: "none",
 		margin: "10px 10px",
 	},
 ]);
