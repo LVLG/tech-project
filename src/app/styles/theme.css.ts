@@ -53,7 +53,7 @@ export const themeVars = createThemeContract({
 });
 
 export const lightTheme = createTheme(themeVars, {
-	backgroundColor: colors.gray100,
+	backgroundColor: "rgba(230, 160, 104, 0.4)",
 	surfaceColor: colors.white,
 	textColor: colors.gray900,
 	textColorMuted: colors.gray600,

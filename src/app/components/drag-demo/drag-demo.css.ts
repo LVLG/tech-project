@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { button } from "../../styles/root.css";
+import { button, glass } from "../../styles/root.css";
 import { themeVars } from "../../styles/theme.css";
 
 export const root = style({
@@ -10,16 +10,17 @@ export const root = style({
 	overflowX: "auto",
 });
 
-export const column = style({
-	display: "flex",
-	flexDirection: "column",
-	minWidth: "175px",
-	maxHeight: "100%",
-	backgroundColor: themeVars.columnBg,
-	border: themeVars.columnBorder,
-	borderRadius: "10px",
-	overflowY: "auto",
-});
+export const column = style([
+	glass(),
+	{
+		display: "flex",
+		flexDirection: "column",
+		minWidth: "175px",
+		maxHeight: "100%",
+		borderRadius: "10px",
+		overflowY: "auto",
+	},
+]);
 
 export const itemDragging = style({
 	boxShadow: themeVars.itemBoxShadowDragging,
