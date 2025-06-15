@@ -1,17 +1,17 @@
 import type { TreatyResponse } from "@ap0nia/eden-react-query";
 
 export function handleSteam<T>(
-	streamFetcherr: () => Promise<TreatyResponse<{ 200: AsyncGenerator<T> }>>,
+	streamFetcher: () => Promise<TreatyResponse<{ 200: AsyncGenerator<T> }>>,
 ): () => AsyncGenerator<T> {
 	return async function* () {
-		const response = await streamFetcherr();
+		const response = await streamFetcher();
 
 		if (response.error !== null) {
 			throw new Error("Failed to fetch stream", { cause: response.error });
 		}
 
-		for await (const chunck of response.data) {
-			yield chunck;
+		for await (const chunk of response.data) {
+			yield chunk;
 		}
 	};
 }

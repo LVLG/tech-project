@@ -1,13 +1,13 @@
 {
-	"files": [],
-	"references": [
-		{ "path": "./tsconfig.app.json" },
-		{ "path": "./tsconfig.node.json" }
-	],
 	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
 		"strict": true,
-		"baseUrl": "./",
-		"paths": {},
-		"esModuleInterop": true
-	}
-}
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"noUncheckedSideEffectImports": true
+	},
+    "exclude": ["node_modules"]
+} 
