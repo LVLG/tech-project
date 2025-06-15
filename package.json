@@ -7,13 +7,10 @@
 		"packages/*"
 	],
 	"scripts": {
-		"dev": "bun run build:server && concurrently --names \"app,server\" -c \"auto\" \"bun run dev:app\" \"bun run dev:server\"",
+		"dev": "bun run build && concurrently --names \"app,server\" -c \"auto\" \"bun run dev:app\" \"bun run dev:server\"",
 		"dev:app": "bun run --filter=@tech-project/app dev",
 		"dev:server": "bun run --filter=@tech-project/server dev",
-		"build": "bun run build:server && bun run build:app",
-		"build:app": "bun run --filter=@tech-project/app build",
-		"build:server": "bun run --filter=@tech-project/server build",
-		"preview": "bun run --filter=@tech-project/app preview",
+		"build": "bun run --filter=@tech-project/* build",
 		"lint": "bunx @biomejs/biome check . --write"
 	},
 	"devDependencies": {
