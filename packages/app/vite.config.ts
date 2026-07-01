@@ -3,14 +3,15 @@ import react from "@vitejs/plugin-react-swc";
 import { defineConfig } from "vite";
 import Checker from "vite-plugin-checker";
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
 	plugins: [
 		react(),
 		vanillaExtractPlugin(),
-		Checker({
-			typescript: {
-				tsconfigPath: "./tsconfig.json",
-			},
-		}),
+		command === "serve" &&
+			Checker({
+				typescript: {
+					tsconfigPath: "./tsconfig.json",
+				},
+			}),
 	],
-});
+}));

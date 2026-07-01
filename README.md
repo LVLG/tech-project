@@ -35,7 +35,7 @@ bun install
 bun dev
 ```
 
-4. Visit `http://localhost:3000` and start playing around!
+4. Visit `http://localhost:5173` and start playing around! (the API server runs on `http://localhost:3001`)
 
 ## Tech Stack
 
